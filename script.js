@@ -1,7 +1,6 @@
 const formInput =document.getElementById('color-form');
 let inputField = document.getElementById('color');
 formInput.addEventListener('submit',(event)=>{
-    // document.getElementById('code1').innerHTML= `<h1>khalid</h1>`;
 
     let newColors = [];
     event.preventDefault();
@@ -28,10 +27,22 @@ formInput.addEventListener('submit',(event)=>{
 
 function setColors(colors){
     for(let i=0; i<colors.length; i++){
-        // let color = colors[i];
         document.getElementById('color'+i).style.backgroundColor = colors[i];
-        // console.log(color)
+        document.getElementById('color'+i).value=colors[i]
         document.getElementById('code'+i).textContent=colors[i];
     }
 
 }
+document.addEventListener('click',(e)=>{
+    console.log()
+    if(e.target.parentElement==document.getElementById('main')|| e.target.parentElement==document.getElementById('footer')){
+
+        navigator.clipboard.writeText(e.target.value);
+        let count =0;
+        document.querySelector('.alert').classList.add('show-message')
+        setTimeout(function(){
+            document.querySelector('.alert').classList.remove('show-message')
+        },1000)
+    }
+
+})
