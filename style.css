@@ -34,10 +34,24 @@ main{
 
 }
 .color-container{
-    
 
     flex-basis: 20%;
     height: 50vh;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+footer{
+    display: flex;
+    text-align: center;
+    background-color:#1F2937;
+    color: white;
+
+    /* opacity: .7; */
+
+}
+.color-code{
+    flex-basis: 20%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;

@@ -1,6 +1,8 @@
 const formInput =document.getElementById('color-form');
 let inputField = document.getElementById('color');
 formInput.addEventListener('submit',(event)=>{
+    // document.getElementById('code1').innerHTML= `<h1>khalid</h1>`;
+
     let newColors = [];
     event.preventDefault();
     const fromData = new FormData(formInput);
@@ -26,8 +28,10 @@ formInput.addEventListener('submit',(event)=>{
 
 function setColors(colors){
     for(let i=0; i<colors.length; i++){
-        let color = colors[i];
-        document.getElementById('color'+i).style.backgroundColor = color;
+        // let color = colors[i];
+        document.getElementById('color'+i).style.backgroundColor = colors[i];
+        // console.log(color)
+        document.getElementById('code'+i).textContent=colors[i];
     }
 
 }
