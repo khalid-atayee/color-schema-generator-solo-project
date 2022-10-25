@@ -1,5 +1,6 @@
 const formInput =document.getElementById('color-form');
 let inputField = document.getElementById('color');
+
 formInput.addEventListener('submit',(event)=>{
 
     let newColors = [];
@@ -31,18 +32,19 @@ function setColors(colors){
         document.getElementById('color'+i).value=colors[i]
         document.getElementById('code'+i).textContent=colors[i];
     }
-
 }
 document.addEventListener('click',(e)=>{
-    console.log()
-    if(e.target.parentElement==document.getElementById('main')|| e.target.parentElement==document.getElementById('footer')){
 
+    if(e.target.parentElement==document.getElementById('main')|| e.target.parentElement==document.getElementById('footer')){
+        let x=e.clientX-40;
+        let y=e.clientY-60;
+        document.querySelector('.alert').style.top=y+'px';
+        document.querySelector('.alert').style.left=x+'px';
         navigator.clipboard.writeText(e.target.value);
-        let count =0;
         document.querySelector('.alert').classList.add('show-message')
         setTimeout(function(){
             document.querySelector('.alert').classList.remove('show-message')
-        },1000)
+        },500)
     }
 
 })
