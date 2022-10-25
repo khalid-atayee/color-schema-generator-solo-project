@@ -34,11 +34,9 @@ function setColors(colors){
 
 }
 document.addEventListener('click',(e)=>{
-    console.log()
     if(e.target.parentElement==document.getElementById('main')|| e.target.parentElement==document.getElementById('footer')){
 
         navigator.clipboard.writeText(e.target.value);
-        let count =0;
         document.querySelector('.alert').classList.add('show-message')
         setTimeout(function(){
             document.querySelector('.alert').classList.remove('show-message')
