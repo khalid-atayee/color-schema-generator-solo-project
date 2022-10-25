@@ -35,11 +35,11 @@ main{
 
 }
 .color-container{
-
     flex-basis: 20%;
     height: 50vh;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 footer{
@@ -48,22 +48,37 @@ footer{
     background-color:#1F2937;
     color: white;
 
-    /* opacity: .7; */
-
 }
 .color-code{
     flex-basis: 20%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 50px;
+    cursor: pointer;
 }
 .alert{
     background-color: bisque;
-    padding: 1em;
+    padding: .7em;
     position: absolute;
-    top: 30%;
-    left: 40%;
+    font-size: .7rem;
     display: none;
+    font-weight: bold;
+
+}
+.alert::after{
+    content: '';
+    background-color:transparent;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    top: 100%;
+    right: 0%;
+    width: 10%;
+    max-width: 0px;
+    border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 20px solid bisque;
+    margin: 0 auto;
+
 }
 .show-message{
     display: block;
