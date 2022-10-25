@@ -9,8 +9,10 @@
 </head>
 <body>
     <header>
+        <!-- Form start here -->
         <form id="color-form" class="color-form">
             <input type="color" name="color" id="color-picker">
+            <!-- *** it would be the best choice that if i could access the mode dynamicly from api intead of hard coding it here *** -->
             <select name="mode" id="mode">
 
                 <option value="monochrome ">monochrome</option>
@@ -24,29 +26,28 @@
             </select>
             <input type="submit" value="Get Color Schema">
       </form>
+      <!-- Form end here -->
 
     </header>
+
+
+
+
+    <!-- main start here   ** here i have the color containers -->
     <main id="main">
-        <div id="color0" class="color-container">
-
-
-
-        </div>
-        <div id="color1" class="color-container">
-
-        </div>
-
-        <div id="color2" class="color-container">
-            
-        </div>
-        <div id="color3" class="color-container">
-            
-        </div>
-        <div id="color4" class="color-container">
-            
-        </div>
+        <div id="color0" class="color-container"></div>
+        <div id="color1" class="color-container"></div>
+        <div id="color2" class="color-container"></div>
+        <div id="color3" class="color-container"></div>
+        <div id="color4" class="color-container"></div>
       
     </main>
+
+    <!-- main end here -->
+
+
+
+    <!-- footer start here ** here i just showed the color code -->
     <footer id="footer">
             <p id="code0" class="color-code"></p>
             <p id="code1" class="color-code"></p>
@@ -55,9 +56,17 @@
             <p id="code4" class="color-code"></p>
 
     </footer>
+    <!-- footer end here -->
+
+
+
+<!-- this is a alert message when the color copied -->
     <div class="alert">
          color copied
     </div>
+
+
+    <!-- script link -->
     <script src="script.js"></script>
 </body>
 </html>

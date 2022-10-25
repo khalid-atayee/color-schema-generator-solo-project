@@ -39,6 +39,7 @@ main{
     height: 50vh;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 footer{
@@ -47,14 +48,12 @@ footer{
     background-color:#1F2937;
     color: white;
 
-    /* opacity: .7; */
-
 }
 .color-code{
     flex-basis: 20%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 50px;
+    cursor: pointer;
 }
 .alert{
     background-color: bisque;
