@@ -1,12 +1,12 @@
 const formInput =document.getElementById('color-form');
-const baseUrl="https://www.thecolorapi.com";
+const baseUrl="https://www.thecolorapi.com/";
 const footer = document.getElementById('footer');
 const main = document.getElementById('main');
 const alert = document.querySelector('.alert');
-let html_body,html_footer;
+let main_content,footer_content;
 
 
-window.addEventListener('load', getColorApi())
+window.addEventListener('load', getColorApi)
 formInput.addEventListener('submit',(event)=>{
 
     event.preventDefault();
@@ -21,30 +21,25 @@ function getColorApi(){
     let mode = fromData.get('mode');
     inputColor=inputColor.slice(1);
     
-    fetch(baseUrl + '/scheme?hex='+inputColor+'&mode='+mode)
+    fetch(baseUrl + 'scheme?hex='+inputColor+'&mode='+mode)
     .then(Response=>Response.json())
     .then((data)=>{
         let dataColors = data.colors;
-        dataColors.map((color)=>{
-            newColors.push(color.hex.value);
-            
-        });
+        dataColors.map(color=>newColors.push(color.hex.value));
         setColors(newColors);
     })
-
 }
-
 
 // *** this function responsible for setting colors in the view
 function setColors(colors){
-    html_body='';
-    html_footer='';
+    main_content='';
+    footer_content='';
     for(let i=0; i<colors.length; i++){
-        html_body +=`<div  data-id="${colors[i]}" style="background-color:${colors[i]}" class="color-container"></div>`; 
-        html_footer+=`<p data-id="${colors[i]}" class="color-code">${colors[i]}</p>`;
+        main_content +=`<div  data-id="${colors[i]}" style="background-color:${colors[i]}" class="color-container"></div>`; 
+        footer_content+=`<p data-id="${colors[i]}" class="color-code">${colors[i]}</p>`;
     }
-    main.innerHTML=html_body;
-    footer.innerHTML=html_footer;
+    main.innerHTML=main_content;
+    footer.innerHTML=footer_content;
 }
 
 // and this event listener will responsible for comying the color and showing the alert message
@@ -74,7 +69,7 @@ document.addEventListener('click',(e)=>{
 
 
 /*  this is another way of doing this basic project just follow the instructions.
-    and  this way is not the best best practice but its good to know how to it works, becuase it may help you in another project***
+    and  this way is not the best best practice but its good to know how it works, becuase it may help you in another project***
 
 */ 
 
