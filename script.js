@@ -1,9 +1,9 @@
 const formInput =document.getElementById('color-form');
-let baseUrl="https://www.thecolorapi.com";
+const baseUrl="https://www.thecolorapi.com";
 const footer = document.getElementById('footer');
 const main = document.getElementById('main');
 const alert = document.querySelector('.alert');
-
+let html_body,html_footer;
 
 
 window.addEventListener('load', getColorApi())
@@ -35,14 +35,16 @@ function getColorApi(){
 }
 
 
-// *** this function responsible for seeting colors in view
+// *** this function responsible for setting colors in the view
 function setColors(colors){
+    html_body='';
+    html_footer='';
     for(let i=0; i<colors.length; i++){
-        document.getElementById('color'+i).style.backgroundColor = colors[i];
-        document.getElementById('color'+i).value=colors[i]
-        document.getElementById('code'+i).textContent=colors[i];
-        document.getElementById('code'+i).value=colors[i];
+        html_body +=`<div  data-id="${colors[i]}" style="background-color:${colors[i]}" class="color-container"></div>`; 
+        html_footer+=`<p data-id="${colors[i]}" class="color-code">${colors[i]}</p>`;
     }
+    main.innerHTML=html_body;
+    footer.innerHTML=html_footer;
 }
 
 // and this event listener will responsible for comying the color and showing the alert message
@@ -53,7 +55,7 @@ document.addEventListener('click',(e)=>{
         let y=e.clientY-60;
         alert.style.top=y+'px';
         alert.style.left=x+'px';
-        navigator.clipboard.writeText(e.target.value);
+        navigator.clipboard.writeText(e.target.dataset.id);
 
         alert.classList.add('show-message')
         setTimeout(function(){
@@ -62,3 +64,62 @@ document.addEventListener('click',(e)=>{
     }
 
 })
+
+
+
+
+
+
+
+
+
+/*  this is another way of doing this basic project just follow the instructions.
+    and  this way is not the best best practice but its good to know how to it works, becuase it may help you in another project***
+
+*/ 
+
+
+/*  put this inside main 
+ <div id="color0" class="color-container"></div>
+<div id="color1" class="color-container"></div>
+<div id="color2" class="color-container"></div>
+<div id="color3" class="color-container"></div>
+<div id="color4" class="color-container"></div> 
+
+*/
+
+/* put this inside footer 
+ <p id="code0" class="color-code"></p>
+<p id="code1" class="color-code"></p>
+<p id="code2" class="color-code"></p>
+<p id="code3" class="color-code"></p>
+<p id="code4" class="color-code"></p> 
+ */
+
+
+// *** and replace these code instead of above code
+// function setColors(colors){
+//     for(let i=0; i<colors.length; i++){
+//         document.getElementById('color'+i).style.backgroundColor = colors[i];
+//         document.getElementById('color'+i).value=colors[i];
+//         document.getElementById('code'+i).textContent=colors[i];
+//         document.getElementById('code'+i).value=colors[i];
+//     }
+// }
+
+// document.addEventListener('click',(e)=>{
+
+//     if(e.target.parentElement==main|| e.target.parentElement==footer){
+//         let x=e.clientX-40;
+//         let y=e.clientY-60;
+//         alert.style.top=y+'px';
+//         alert.style.left=x+'px';
+//         navigator.clipboard.writeText(e.target.value);
+
+//         alert.classList.add('show-message')
+//         setTimeout(function(){
+//             alert.classList.remove('show-message')
+//         },500)
+//     }
+
+// })
